@@ -1,5 +1,5 @@
 provider "aws" {
-  region = var.aws_region # The region will come from variables.tf
+  region = var.aws_region 
 }
 # Create a VPC
 resource "aws_vpc" "main" {
@@ -191,8 +191,8 @@ resource "aws_lb" "ecs_alb" {
   name               = "node-microservice-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.ecs_sg.id] # Use your ECS security group
-  subnets            = aws_subnet.public[*].id        # Public subnets for the ALB
+  security_groups    = [aws_security_group.ecs_sg.id] 
+  subnets            = aws_subnet.public[*].id        
 
   enable_deletion_protection = false
 }
